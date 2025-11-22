@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="5" passed="5" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2025-11-22T22:09:01 IST" name="Suite" finished-at="2025-11-22T22:10:44 IST" duration-ms="102670">
+    <groups>
+      <group name="system">
+        <method signature="DispatchPlanner.Split()[pri:1, instance:NG.JK.DispatchPlanner@353352b6]" name="Split" class="NG.JK.DispatchPlanner"/>
+        <method signature="Transporter_DirectOrder.CommitOfSingleOrder()[pri:1, instance:NG.JK.Transporter_DirectOrder@4681c175]" name="CommitOfSingleOrder" class="NG.JK.Transporter_DirectOrder"/>
+        <method signature="DispatchPlanner.SingleOrderAssignement()[pri:2, instance:NG.JK.DispatchPlanner@353352b6]" name="SingleOrderAssignement" class="NG.JK.DispatchPlanner"/>
+        <method signature="Transporter_DirectOrder.TruckAllocation()[pri:2, instance:NG.JK.Transporter_DirectOrder@4681c175]" name="TruckAllocation" class="NG.JK.Transporter_DirectOrder"/>
+      </group> <!-- system -->
+      <group name="regression">
+        <method signature="DispatchPlanner.Split()[pri:1, instance:NG.JK.DispatchPlanner@353352b6]" name="Split" class="NG.JK.DispatchPlanner"/>
+        <method signature="Transporter_DirectOrder.CommitOfSingleOrder()[pri:1, instance:NG.JK.Transporter_DirectOrder@4681c175]" name="CommitOfSingleOrder" class="NG.JK.Transporter_DirectOrder"/>
+        <method signature="DispatchPlanner.SingleOrderAssignement()[pri:2, instance:NG.JK.DispatchPlanner@353352b6]" name="SingleOrderAssignement" class="NG.JK.DispatchPlanner"/>
+        <method signature="Transporter_DirectOrder.TruckAllocation()[pri:2, instance:NG.JK.Transporter_DirectOrder@4681c175]" name="TruckAllocation" class="NG.JK.Transporter_DirectOrder"/>
+      </group> <!-- regression -->
+    </groups>
+    <test started-at="2025-11-22T22:09:01 IST" name="Test1" finished-at="2025-11-22T22:10:44 IST" duration-ms="102670">
+      <class name="NG.JK.Truck_Master_Registration">
+        <test-method is-config="true" signature="Launch()[pri:0, instance:NG.JK.Truck_Master_Registration@273444fe]" started-at="2025-11-22T22:09:01 IST" name="Launch" finished-at="2025-11-22T22:09:11 IST" duration-ms="9925" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Launch -->
+        <test-method signature="New_Truck_Registration()[pri:1, instance:NG.JK.Truck_Master_Registration@273444fe]" started-at="2025-11-22T22:09:11 IST" name="New_Truck_Registration" finished-at="2025-11-22T22:09:43 IST" duration-ms="31964" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- New_Truck_Registration -->
+        <test-method is-config="true" signature="LogoutandQuit()[pri:0, instance:NG.JK.Truck_Master_Registration@273444fe]" started-at="2025-11-22T22:09:43 IST" name="LogoutandQuit" finished-at="2025-11-22T22:09:44 IST" duration-ms="991" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- LogoutandQuit -->
+      </class> <!-- NG.JK.Truck_Master_Registration -->
+      <class name="NG.JK.Transporter_DirectOrder">
+        <test-method is-config="true" signature="Launch()[pri:0, instance:NG.JK.Transporter_DirectOrder@4681c175]" started-at="2025-11-22T22:10:28 IST" name="Launch" finished-at="2025-11-22T22:10:36 IST" duration-ms="8308" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Launch -->
+        <test-method signature="CommitOfSingleOrder()[pri:1, instance:NG.JK.Transporter_DirectOrder@4681c175]" started-at="2025-11-22T22:10:36 IST" name="CommitOfSingleOrder" finished-at="2025-11-22T22:10:40 IST" duration-ms="3755" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CommitOfSingleOrder -->
+        <test-method signature="TruckAllocation()[pri:2, instance:NG.JK.Transporter_DirectOrder@4681c175]" started-at="2025-11-22T22:10:40 IST" name="TruckAllocation" finished-at="2025-11-22T22:10:43 IST" duration-ms="2900" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TruckAllocation -->
+        <test-method is-config="true" signature="LogoutandQuit()[pri:0, instance:NG.JK.Transporter_DirectOrder@4681c175]" started-at="2025-11-22T22:10:43 IST" name="LogoutandQuit" finished-at="2025-11-22T22:10:44 IST" duration-ms="552" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- LogoutandQuit -->
+      </class> <!-- NG.JK.Transporter_DirectOrder -->
+      <class name="NG.JK.DispatchPlanner">
+        <test-method is-config="true" signature="Launch()[pri:0, instance:NG.JK.DispatchPlanner@353352b6]" started-at="2025-11-22T22:09:44 IST" name="Launch" finished-at="2025-11-22T22:09:53 IST" duration-ms="9151" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Launch -->
+        <test-method signature="Split()[pri:1, instance:NG.JK.DispatchPlanner@353352b6]" started-at="2025-11-22T22:09:53 IST" name="Split" finished-at="2025-11-22T22:10:15 IST" duration-ms="21699" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Split -->
+        <test-method signature="SingleOrderAssignement()[pri:2, instance:NG.JK.DispatchPlanner@353352b6]" started-at="2025-11-22T22:10:15 IST" name="SingleOrderAssignement" finished-at="2025-11-22T22:10:27 IST" duration-ms="12250" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SingleOrderAssignement -->
+        <test-method is-config="true" signature="LogoutandQuit()[pri:0, instance:NG.JK.DispatchPlanner@353352b6]" started-at="2025-11-22T22:10:28 IST" name="LogoutandQuit" finished-at="2025-11-22T22:10:28 IST" duration-ms="206" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- LogoutandQuit -->
+      </class> <!-- NG.JK.DispatchPlanner -->
+    </test> <!-- Test1 -->
+  </suite> <!-- Suite -->
+</testng-results>

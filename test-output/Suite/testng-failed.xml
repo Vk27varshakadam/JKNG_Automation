@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <listeners>
+    <listener class-name="utility.TestNGListener"/>
+  </listeners>
+  <test thread-count="5" name="SingleOrderSplittoTruckAllocationwithNewTruckRegistration(failed)">
+    <classes>
+      <class name="NG.JK.Transporter_DirectOrder">
+        <methods>
+          <include name="LogoutandQuit"/>
+          <include name="CommitSingleOrder"/>
+          <include name="Launch"/>
+        </methods>
+      </class> <!-- NG.JK.Transporter_DirectOrder -->
+      <class name="NG.JK.DispatchPlanner">
+        <methods>
+          <include name="LogoutandQuit"/>
+          <include name="Launch"/>
+          <include name="SingleOrderAssignement"/>
+        </methods>
+      </class> <!-- NG.JK.DispatchPlanner -->
+    </classes>
+  </test> <!-- SingleOrderSplittoTruckAllocationwithNewTruckRegistration(failed) -->
+</suite> <!-- Failed suite [Suite] -->
