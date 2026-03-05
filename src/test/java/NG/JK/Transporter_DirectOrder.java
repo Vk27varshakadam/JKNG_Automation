@@ -43,6 +43,7 @@ public class Transporter_DirectOrder extends Transporter_Login
 		tdr.Transporter_Vehicle_Allocation_Icon_Click();
 		tdr.Transporter_Assign_Vehicle_Popup_VehicleNOEnter();
 		tdr.Transporter_Assign_Vehicle_Popup_DriverLicenseNoEnter();
+		tdr.Action_On_Total_Order_Available_In_Auction();
 		tdr.Transporter_Assign_Vehicle_Btn_click();
 	
 		

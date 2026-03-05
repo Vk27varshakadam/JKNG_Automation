@@ -8,6 +8,7 @@ import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
@@ -147,6 +148,12 @@ public class Truck_Master_Page extends ExcelConfig
 	
 	@FindBy(xpath="//input[@name=\"insuranceExpiryDate\"]")
 	WebElement InsExpdt;
+	
+	@FindBy(xpath="//input[@name='pvcIssueDate']")
+	WebElement PVCIssdt;
+	
+	@FindBy(xpath="//input[@name='pvcExpiryDate']")
+	WebElement PVCExpdt;
 	
 	
 	public void TruckRegistration_Form_TruckNo_Enter() throws IOException
@@ -513,6 +520,24 @@ public class Truck_Master_Page extends ExcelConfig
 		LoadExcel(FilePath,"Truck_Registration");
 		String InsExpDate =	ExcelConfig.getCelldata(1, 29);
 		InsExpdt.sendKeys(InsExpDate);
+	}
+	
+	public void PVCIssueDate() throws IOException
+	{
+		
+		LoadExcel(FilePath,"Truck_Registration");
+		String PVCIssueDate =	ExcelConfig.getCelldata(1, 30);
+		PVCIssdt.sendKeys(PVCIssueDate);
+		
+	}
+	
+	public void PVCEXPDate() throws IOException
+	{
+		
+		LoadExcel(FilePath,"Truck_Registration");
+		String PVCExpiryDate =	ExcelConfig.getCelldata(1, 31);
+		PVCExpdt.sendKeys(PVCExpiryDate);
+		
 	}
 	
 	public void TruckSaveBtn()

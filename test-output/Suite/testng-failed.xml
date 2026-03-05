@@ -4,22 +4,15 @@
   <listeners>
     <listener class-name="utility.TestNGListener"/>
   </listeners>
-  <test thread-count="5" name="SingleOrderSplittoTruckAllocationwithNewTruckRegistration(failed)">
+  <test thread-count="5" name="Test1(failed)">
     <classes>
       <class name="NG.JK.Transporter_DirectOrder">
         <methods>
           <include name="LogoutandQuit"/>
-          <include name="CommitSingleOrder"/>
           <include name="Launch"/>
+          <include name="CommitOfSingleOrder"/>
         </methods>
       </class> <!-- NG.JK.Transporter_DirectOrder -->
-      <class name="NG.JK.DispatchPlanner">
-        <methods>
-          <include name="LogoutandQuit"/>
-          <include name="Launch"/>
-          <include name="SingleOrderAssignement"/>
-        </methods>
-      </class> <!-- NG.JK.DispatchPlanner -->
     </classes>
-  </test> <!-- SingleOrderSplittoTruckAllocationwithNewTruckRegistration(failed) -->
+  </test> <!-- Test1(failed) -->
 </suite> <!-- Failed suite [Suite] -->

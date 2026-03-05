@@ -59,10 +59,14 @@ public class Truck_Master_Registration  extends Logistic_Login
 	trm.Permitno();
 	trm.PermitType();
 	trm.TruckReg_PUCEXPRY();
+	trm.PVCIssueDate();
+	trm.PVCEXPDate();
+	
 	trm.TruckReg_RoadTaxRenewdt();
 	trm.TruckReg_FitnessRenew();
 	trm.TruckReg_VehRegdt();
 	trm.TruckReg_VehExpDate();
+	
 	trm.TruckReg_InsuranceSection();
 	trm.InsuranceNo();
 	trm.InsuranceCompany();

@@ -1,6 +1,7 @@
 package utility;
 
 import java.io.FileInputStream;
+
 import java.io.FileOutputStream;
 import java.io.IOException;
 
@@ -45,7 +46,7 @@ public class ExcelConfig
 
         Cell cell = existingRow.getCell(column);
         if (cell == null)
-            cell = existingRow.createCell(column);
+            cell = existingRow.createCell(column);	
 
         cell.setCellValue(value);
 

@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
@@ -25,11 +26,14 @@ public class DispatchPlanner_Page extends ExcelConfig
 	public String Split_Qty;
 	public String ChildOrderno;
 	public String Transportername ; //="PRADEE TRANSP1"
+	public String Transportername1;
+	public String Transportername2;
+	public String ChildOrder2;
 	public String FilePath = "D:\\AutomationTesting2025\\JKNGAutomation\\ExcelData\\ExcelData.xlsx";
 	
 	public DispatchPlanner_Page(ChromeDriver driver)
 	{
-		this.driver=driver;
+		this.driver= driver;
 		PageFactory.initElements(driver, this);
 	}
 	
@@ -52,6 +56,8 @@ public class DispatchPlanner_Page extends ExcelConfig
 	@FindBy(xpath="//div[@aria-label=\"Assign to Transporter\"]")
 	WebElement DPOOrderAssign_icon;
 	
+	@FindBy(xpath="//div[@aria-label=\"Send to Auction\"]")
+	WebElement DPOOrderSenttoAuction_icon;
 	
 	
 	@FindBy(xpath="//input[@id='outlined-basic']")
@@ -96,6 +102,8 @@ public class DispatchPlanner_Page extends ExcelConfig
 	@FindBy(xpath="//button[text()='Assign']")
 	WebElement DPO_Transporter_Assign_Submit_btn;
 	
+	@FindBy(xpath="//button[text()='Send To Auction']")
+	WebElement SentToAuction_Btn;
 	
 	
 	public void DPOFilterClick() 
@@ -190,7 +198,15 @@ public class DispatchPlanner_Page extends ExcelConfig
 		this.ChildOrderno = ChildOrderno;
 		OrderSearch.sendKeys(ChildOrderno);		
 	}
-	
+	public void SearchChildOrderNumber_TosentAuction() throws IOException
+	{
+		OrderSearch.click();
+		OrderSearch.clear();
+		LoadExcel(FilePath,"Order_Data");
+		String ChildOrder2 = ExcelConfig.getCelldata(2,3);
+		this.ChildOrder2 = ChildOrder2;
+		OrderSearch.sendKeys(ChildOrder2);		
+	}
 	
 	
 	public void DPOOrderAssign_icon_click()
@@ -198,16 +214,19 @@ public class DispatchPlanner_Page extends ExcelConfig
 		DPOOrderAssign_icon.click();
 		
 	}
-
-	public void DPO_AssignTransporterList_SearchTextbox_EnterTransporter()
+	
+	public void DPO_AssignTransporterList_SearchTextbox_EnterTransporter() throws InterruptedException, IOException
 	{
+		Thread.sleep(2000);
+		LoadExcel(FilePath,"Order_Data");
+		String Transportername = ExcelConfig.getCelldata(1,4);
+		this.Transportername = Transportername;
 		
 		DPO_AssignTransporterList_SearchTextbox.click();
-		DPO_AssignTransporterList_SearchTextbox.sendKeys("Vktrans");
-		
+		DPO_AssignTransporterList_SearchTextbox.sendKeys(Transportername);
 		
 	}
-	
+
 	public void Transporter_Checkbox_click() throws IOException, InterruptedException
 	{
 		Thread.sleep(2000);
@@ -220,7 +239,6 @@ public class DispatchPlanner_Page extends ExcelConfig
 		checkboxoftransporter.click();
 		
 	}
-	
 	
 	public void DPO_Transporter_AssignSubmit_Btn_click()
 	{
@@ -262,7 +280,75 @@ public class DispatchPlanner_Page extends ExcelConfig
 		FreightDetails_Submit_btn.click();
 		
 	}
+
+
+	public void DPOOrderSentOrderTo_Auction_icon_click()
+	{
+		
+		DPOOrderSenttoAuction_icon.click();
+	}
+
+	public void DPO_AuctionTransporterList_SearchTextbox_EnterTransporter1() throws IOException, InterruptedException
+	{
+		Thread.sleep(2000);
+		LoadExcel(FilePath,"Order_Data");
+		String Transportername1 = ExcelConfig.getCelldata(2,4);
+		this.Transportername1 = Transportername1;
+		
+		DPO_AssignTransporterList_SearchTextbox.click();
+		DPO_AssignTransporterList_SearchTextbox.sendKeys(Transportername1);
+		
+		
+	}
 	
+	public void Transporter1_Auction_Checkbox_click() throws IOException, InterruptedException
+	{
+		Thread.sleep(2000);
+		LoadExcel(FilePath,"Order_Data");
+		String Transportername1 = ExcelConfig.getCelldata(2,4);
+		this.Transportername1 = Transportername1;
+		WebElement checkboxoftransporter= driver.findElement(By.xpath("//div[@class='MuiBox-root css-1rr4qq7']/p[@class='MuiTypography-root MuiTypography-body1 css-1t5h120' and text()='"+Transportername1+"']/ancestor::div[@class='MuiBox-root css-15xnogf']/span//input[@type='checkbox']"));
+		//WebElement checkboxoftransporter= driver.findElement(By.xpath("//div[@class='MuiBox-root css-1rr4qq7']/p[@class='MuiTypography-root MuiTypography-body1 css-1t5h120' and text()='Vktrans']/ancestor::div[@class='MuiBox-root css-15xnogf']/span//input[@type='checkbox']"));
+		
+		checkboxoftransporter.click();
+		
+	}
+	
+	
+	public void DPO_AuctionTransporterList_SearchTextbox_EnterTransporter2() throws IOException, InterruptedException
+	{
+		DPO_AssignTransporterList_SearchTextbox.click();
+		DPO_AssignTransporterList_SearchTextbox.clear();
+		DPO_AssignTransporterList_SearchTextbox.sendKeys(Keys.CONTROL,"a");
+		DPO_AssignTransporterList_SearchTextbox.sendKeys(Keys.BACK_SPACE);
+		Thread.sleep(2000);
+		LoadExcel(FilePath,"Order_Data");
+		String Transportername2 = ExcelConfig.getCelldata(3,4);
+		this.Transportername2 = Transportername2;
+		
+		DPO_AssignTransporterList_SearchTextbox.sendKeys(Transportername2);
+		
+		
+	}
+	
+	public void Transporter2_Auction_Checkbox_click() throws IOException, InterruptedException
+	{
+		Thread.sleep(2000);
+		LoadExcel(FilePath,"Order_Data");
+		String Transportername2 = ExcelConfig.getCelldata(3,4);
+		this.Transportername2 = Transportername2;
+		WebElement checkboxoftransporter= driver.findElement(By.xpath("//div[@class='MuiBox-root css-1rr4qq7']/p[@class='MuiTypography-root MuiTypography-body1 css-1t5h120' and text()='"+Transportername2+"']/ancestor::div[@class='MuiBox-root css-15xnogf']/span//input[@type='checkbox']"));
+		//WebElement checkboxoftransporter= driver.findElement(By.xpath("//div[@class='MuiBox-root css-1rr4qq7']/p[@class='MuiTypography-root MuiTypography-body1 css-1t5h120' and text()='Vktrans']/ancestor::div[@class='MuiBox-root css-15xnogf']/span//input[@type='checkbox']"));
+		
+		checkboxoftransporter.click();
+		
+	}
+	
+	
+	public void SentToAuction_Btn_click()
+	{
+		SentToAuction_Btn.click();
+	}
 	
 	
 	

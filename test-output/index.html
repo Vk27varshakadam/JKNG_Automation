@@ -113,12 +113,12 @@
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Suite" title="NG.JK.DispatchPlanner" class="method navigator-link" hash-for-method="SingleOrderAssignement">SingleOrderAssignement</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Suite" title="NG.JK.DispatchPlanner_Assignement" class="method navigator-link" hash-for-method="SingleOrderAssignement">SingleOrderAssignement</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Suite" title="NG.JK.DispatchPlanner" class="method navigator-link" hash-for-method="Split">Split</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Suite" title="NG.JK.DispatchPlanner_Assignement" class="method navigator-link" hash-for-method="Split">Split</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
@@ -178,7 +178,7 @@
           <div class="suite-Suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">NG.JK.DispatchPlanner</span>
+              <span class="class-name">NG.JK.DispatchPlanner_Assignement</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
@@ -213,7 +213,7 @@
   &lt;test thread-count=&quot;5&quot; name=&quot;Test1&quot;&gt;
     &lt;classes&gt;
       &lt;class name=&quot;NG.JK.Truck_Master_Registration&quot;/&gt;
-      &lt;class name=&quot;NG.JK.DispatchPlanner&quot;/&gt;
+      &lt;class name=&quot;NG.JK.DispatchPlanner_Assignement&quot;/&gt;
       &lt;class name=&quot;NG.JK.Transporter_DirectOrder&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Test1 --&gt;
@@ -298,23 +298,23 @@ data.addRows(5);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'New_Truck_Registration')
 data.setCell(0, 2, 'NG.JK.Truck_Master_Registration')
-data.setCell(0, 3, 31964);
+data.setCell(0, 3, 29419);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'Split')
-data.setCell(1, 2, 'NG.JK.DispatchPlanner')
-data.setCell(1, 3, 21699);
+data.setCell(1, 2, 'NG.JK.DispatchPlanner_Assignement')
+data.setCell(1, 3, 18957);
 data.setCell(2, 0, 2)
 data.setCell(2, 1, 'SingleOrderAssignement')
-data.setCell(2, 2, 'NG.JK.DispatchPlanner')
-data.setCell(2, 3, 12250);
+data.setCell(2, 2, 'NG.JK.DispatchPlanner_Assignement')
+data.setCell(2, 3, 13267);
 data.setCell(3, 0, 3)
 data.setCell(3, 1, 'CommitOfSingleOrder')
 data.setCell(3, 2, 'NG.JK.Transporter_DirectOrder')
-data.setCell(3, 3, 3755);
+data.setCell(3, 3, 3421);
 data.setCell(4, 0, 4)
 data.setCell(4, 1, 'TruckAllocation')
 data.setCell(4, 2, 'NG.JK.Transporter_DirectOrder')
-data.setCell(4, 3, 2900);
+data.setCell(4, 3, 2552);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
@@ -352,49 +352,49 @@ return data;
               </div> <!-- configuration-class before -->
               <div class="test-method">
                 <span class="method-name">New_Truck_Registration</span>
-                <span class="method-start">9939 ms</span>
+                <span class="method-start">13668 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">LogoutandQuit</span>
-                <span class="method-start">42083 ms</span>
+                <span class="method-start">43222 ms</span>
               </div> <!-- configuration-class after -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
-              <div class="chronological-class-name">NG.JK.DispatchPlanner</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">NG.JK.DispatchPlanner_Assignement</div> <!-- chronological-class-name -->
               <div class="configuration-class before">
                 <span class="method-name">Launch</span>
-                <span class="method-start">43077 ms</span>
+                <span class="method-start">44190 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
                 <span class="method-name">Split</span>
-                <span class="method-start">52231 ms</span>
+                <span class="method-start">52558 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">SingleOrderAssignement</span>
-                <span class="method-start">74100 ms</span>
+                <span class="method-start">71643 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">LogoutandQuit</span>
-                <span class="method-start">86509 ms</span>
+                <span class="method-start">85042 ms</span>
               </div> <!-- configuration-class after -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">NG.JK.Transporter_DirectOrder</div> <!-- chronological-class-name -->
               <div class="configuration-class before">
                 <span class="method-name">Launch</span>
-                <span class="method-start">86715 ms</span>
+                <span class="method-start">85158 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
                 <span class="method-name">CommitOfSingleOrder</span>
-                <span class="method-start">95024 ms</span>
+                <span class="method-start">92392 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">TruckAllocation</span>
-                <span class="method-start">98970 ms</span>
+                <span class="method-start">96019 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">LogoutandQuit</span>
-                <span class="method-start">102089 ms</span>
+                <span class="method-start">98722 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="NG.JK.Truck_Master_Registration">
+      <class name="NG.JK.Transporter_AuctionFlow">
         <methods>
+          <include name="CommitOfSingleOrder"/>
           <include name="LogoutandQuit"/>
           <include name="Launch"/>
-          <include name="New_Truck_Registration"/>
         </methods>
-      </class> <!-- NG.JK.Truck_Master_Registration -->
+      </class> <!-- NG.JK.Transporter_AuctionFlow -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

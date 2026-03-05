@@ -9,7 +9,7 @@
     <classes>
 		
       <class name="NG.JK.Truck_Master_Registration"/>
-      <class name="NG.JK.DispatchPlanner"/>
+      <class name="NG.JK.DispatchPlanner_Assignement"/>
       
       <class name="NG.JK.Transporter_DirectOrder"/>
     </classes>

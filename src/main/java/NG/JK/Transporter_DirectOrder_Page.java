@@ -2,9 +2,13 @@ package NG.JK;
 
 import java.io.IOException;
 import java.time.Duration;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.FindBy;
@@ -20,6 +24,7 @@ public class Transporter_DirectOrder_Page extends ExcelConfig
 	ChromeDriver driver;
 	public String FilePath = "D:\\AutomationTesting2025\\JKNGAutomation\\ExcelData\\ExcelData.xlsx";
 	public  String ChildOrderNo;
+	public int cntofAuctionOrder;
 	
 	@FindBy(xpath="//div[@aria-label=\"Search\"]")
 	WebElement SearchOrderIcon;
@@ -55,6 +60,22 @@ public class Transporter_DirectOrder_Page extends ExcelConfig
 	@FindBy(xpath="//button[text()='Assign Vehicle']")
 	WebElement Assign_Vehicle_Popup_AssignVehicle_Button;
 	
+	@FindBy(xpath="//button[text()='Auction Order']")
+	WebElement AuctionScreenLink;
+	
+	@FindBy(xpath= "//*[text()='Pending Bids']/ancestor::div[@class=\"MuiBox-root css-1mocain\"]/h5")
+	WebElement CountOf_PendingBids;
+	
+	
+	@FindBy(xpath="//div[@class=\"data-table-container\"]/table/tbody/tr")
+	List<WebElement> TotalOrdersinAuction;
+	
+	
+	@FindBy(xpath="//input[@placeholder=\"New Bid\"]")
+	WebElement NewBidTextbox;
+	
+	@FindBy(xpath="//button[text()='Submit']")
+	WebElement BidSubmit_Btn;
 	
 	public Transporter_DirectOrder_Page(ChromeDriver driver)
 	{
@@ -135,9 +156,65 @@ public class Transporter_DirectOrder_Page extends ExcelConfig
 	}
 	
 	public void Transporter_Assign_Vehicle_Btn_click()
+	{	
+		Assign_Vehicle_Popup_AssignVehicle_Button.click();
+	}
+	
+	public void Transporter_Auction_Screen_Access()
+	{
+		WebDriverWait wt = new WebDriverWait(driver,Duration.ofSeconds(30));
+		wt.until(ExpectedConditions.elementToBeClickable(AuctionScreenLink));
+		
+		AuctionScreenLink.click();
+	}
+
+	public void Action_On_Total_Order_Available_In_Auction()
 	{
 		
-		Assign_Vehicle_Popup_AssignVehicle_Button.click();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+		cntofAuctionOrder = TotalOrdersinAuction.size();
+
+		 this.cntofAuctionOrder=cntofAuctionOrder;
+		//Set<String> OrderDetails = new HashSet<>();
+		
+		for(WebElement order_details_in_Auction :TotalOrdersinAuction )
+		{
+			order_details_in_Auction.getText();
+		}
+		System.out.println("Orders in Auction are "+cntofAuctionOrder);
 		
 	}
+	
+	public void BidtheAuctionOrder()
+	{
+	    List<WebElement> bidButtons = driver.findElements(
+	        By.xpath("//div[@class='data-table-container']/table/tbody/tr/td/button[text()='Bid']")
+	    );
+
+	    for(WebElement bidbtn : bidButtons)
+	    {
+	    	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+	    	bidbtn.click();
+	    	
+	    	WebDriverWait wt = new WebDriverWait(driver,Duration.ofSeconds(30));
+	    			wt.until(ExpectedConditions.elementToBeClickable(NewBidTextbox));
+	    			
+	    	
+	        WebElement Attached_Freight = driver.findElement(By.xpath("//tr[@class=\"MuiTableRow-root css-1rz7w7v\"]/td[2]"));
+	       String Freighvaluefetch = Attached_Freight.getText();
+	       double freightvalue = Double.parseDouble(Freighvaluefetch);
+	       
+	       int reducebidvalue = (int)(freightvalue / 2);
+	       int bidfreightvalue = (int)freightvalue - reducebidvalue;
+	       
+	       
+	       NewBidTextbox.click();
+	       NewBidTextbox.sendKeys(String.valueOf(bidfreightvalue));
+	       
+	       BidSubmit_Btn.click();
+	       
+	    }
+	}
+
+	
 }

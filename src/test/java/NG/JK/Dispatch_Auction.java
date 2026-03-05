@@ -1,9 +1,7 @@
 package NG.JK;
-import org.testng.annotations.Test;
-import org.testng.AssertJUnit;
+
 import java.io.IOException;
 import java.time.Duration;
-import java.util.List;
 
 import org.apache.poi.EncryptedDocumentException;
 import org.openqa.selenium.By;
@@ -14,15 +12,17 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
+import org.testng.AssertJUnit;
 import org.testng.annotations.Test;
 
 import utility.ExcelConfig;
 
-public class DispatchPlanner extends Logistic_Login
+public class Dispatch_Auction extends Logistic_Login
 {
 	public String FilePath = "D:\\AutomationTesting2025\\JKNGAutomation\\ExcelData\\ExcelData.xlsx";
-	public String ChildOrder1;
+	public String ChildOrder2;
+	
+	  
 	
 	@Test(priority=1,groups={"regression","system"})
 	public void Split() throws EncryptedDocumentException, IOException, InterruptedException
@@ -52,20 +52,7 @@ public class DispatchPlanner extends Logistic_Login
 		
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 		Thread.sleep(2000);
-	/*Thread.sleep(3000);
-		
-		List<WebElement> listorder = driver.findElements(By.xpath("//table[@class='table-hover text-left data-table']/tbody/tr/td[2]/span"));
-		System.out.println(listorder);
-		
-		int cnt = listorder.size();
-		System.out.println("Cnt "+cnt);
-		
-		
-		for (WebElement opt : listorder)
-		{
-		    System.out.println(opt.getText());
-		}
-*/
+	
 	  dpo.Dpo_SO_Byascendingorder();
 	  
 	  Thread.sleep(2000);
@@ -89,12 +76,12 @@ public class DispatchPlanner extends Logistic_Login
 	
 	
 	WebElement Splitorder1 = driver.findElement(By.xpath("(//div[@class='side-splited-order-row MuiBox-root css-0']/div/p)[1]"));
-	 ChildOrder1 = Splitorder1.getText();
-	System.out.println("Child Order1 No "+ChildOrder1);
+	 ChildOrder2 = Splitorder1.getText();
+	System.out.println("Child Order2 No "+ChildOrder2);
 		
 	ExcelConfig exf = new ExcelConfig();
 	exf.LoadExcel(FilePath,"Order_Data");
-	ExcelConfig.setCelldata(FilePath, 1, 3, ChildOrder1);
+	ExcelConfig.setCelldata(FilePath, 2, 3, ChildOrder2);
 	System.out.println("Child Order Added in Excel Successfully");
 	
 	Thread.sleep(2000);
@@ -104,19 +91,12 @@ public class DispatchPlanner extends Logistic_Login
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 		Thread.sleep(2000);
 		
-	/*	WebElement splitorderalertvalue = driver.findElement(By.xpath("(//div[@role='alert']/div)[2]"));
-		String xyz = splitorderalertvalue.getText();
-		System.out.println("Splitted Order Alert msg "+xyz);
-		
-	//	Wait<WebDriver> wt4 = new WebDriverWait(driver,Duration.ofSeconds(20));
-		//wt4.until(ExpectedConditions.)*/
-		
-		dpo.Dpo_page_Refresh_icon_click();
-		
+		dpo.Dpo_page_Refresh_icon_click();	
 	}
-	
+
+
 	@Test(priority=2,groups={"regression","system"})
-	public void SingleOrderAssignement() throws IOException, InterruptedException
+	public void SingleOrderSentToAuction() throws IOException, InterruptedException
 	{
 		Thread.sleep(3000);
 		DispatchPlanner_Page dpo = new DispatchPlanner_Page(driver);
@@ -125,7 +105,7 @@ public class DispatchPlanner extends Logistic_Login
 		
 		dpo.DPOFilterClick();
 		
-		dpo.SearchChildOrderNumber();
+		dpo.SearchChildOrderNumber_TosentAuction();
 		
 		dpo.DpoFilterApplyBtn();
 		
@@ -134,22 +114,14 @@ public class DispatchPlanner extends Logistic_Login
 		
 		dpo.Dpo_SO_ByDescendinggorder();
 		dpo.OrderAction_Checkbox_Click();
-		dpo.DPOOrderAssign_icon_click();
-		dpo.DPO_AssignTransporterList_SearchTextbox_EnterTransporter();
-		Thread.sleep(2000);
-		dpo.Transporter_Checkbox_click();
+		dpo.DPOOrderSentOrderTo_Auction_icon_click();
+		dpo.DPO_AuctionTransporterList_SearchTextbox_EnterTransporter1();
+		dpo.Transporter1_Auction_Checkbox_click();
+		dpo.DPO_AuctionTransporterList_SearchTextbox_EnterTransporter2();
+		dpo.Transporter2_Auction_Checkbox_click();
+		dpo.SentToAuction_Btn_click();
 		
-		wt.until(ExpectedConditions.elementToBeClickable(dpo.DPO_AssignTransporterList_RemarkDropdown));
-		//dpo.DPO_TransporterAssignment_Remark_Selection();
-		dpo.DPO_TransporterAssignment_Remark_Selection();
-		
-		dpo.DPO_Transporter_AssignSubmit_Btn_click();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-		dpo.Fregith_FinalAssignBtn_click();
-		
-		System.out.println("Order has been assigned Successfully");
 		
 	}
-	
 	
 }
